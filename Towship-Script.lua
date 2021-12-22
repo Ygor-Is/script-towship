@@ -3,7 +3,6 @@ local scriptAuthor = "Ygor Is"
 
 local atvScript = 1
 local ativacao = 1
-local MemoriRegion = gg.REGION_C_ALLOC
 local database = require "TowshipDB"
 
 
