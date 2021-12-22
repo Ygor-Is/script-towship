@@ -3,7 +3,6 @@ local scriptAuthor = "Ygor Is"
 
 local atvScript = 1
 local ativacao = 1
-local MemoriRegion = gg.REGION_C_ALLOC
 local database = require "TowshipDB"
 
 
@@ -29,12 +28,12 @@ function mainMenu()
     local mainM =
         gg.choice(
         {
-            "[+] Opções",
-            "[+] Opções De Tempo",
-            "[+] Tools",
-            "[+] Skins Rewards",
-            "[+] Itens Rewards",
-            "[+] Sair"
+            "➲ Opções",
+            "➲ Opções De Tempo",
+            "➲ Tools",
+            "➲ Skins Rewards",
+            "➲ Itens Rewards",
+            "➲ Sair"
         },
         nil
     )
@@ -386,8 +385,8 @@ function gameOpitions()
     local toolsM =
         gg.choice(
         {
-            "[+] Free Up Celeiro ",
-            "[+] Voltar"
+            "➲ Free Up Celeiro ",
+            "➲ Voltar"
         },
         nil
     )
@@ -457,10 +456,10 @@ function toolsGame()
     local toolsGameM =
         gg.choice(
         {
-            "[+] Bilhete Vip ",
-            "[+] Parte de Cima Do Bilhete ",
-            "[+] Parte de Baixo Do Bilhete ",
-            "[+] Voltar"
+            "➲ Bilhete Vip ",
+            "➲ Parte de Cima Do Bilhete ",
+            "➲ Parte de Baixo Do Bilhete ",
+            "➲ Voltar"
         },
         nil
     )
@@ -733,8 +732,8 @@ function baseConfigRewards()
     local baseMenu =
         gg.choice(
         {
-            "❖ Notas Da parte de cima do Bilhete.",
-            "❖ Foto De natal Parte de Baixo do Bilhete."
+            "➲ Notas Da parte de cima do Bilhete.",
+            "➲ Foto De natal Parte de Baixo do Bilhete."
         },
         nil,
        "Selecione Um Item Para Usar Como Base."
@@ -905,11 +904,11 @@ end
    -- local skinsM =
        -- gg.choice(
         -- {
-            -- "[+] Estação Discoteca ", -- 1
-            -- "[+] skin ", --2
-            -- "[+] skin ", --3
-            -- "[+] skin ", --4
-            -- "[+] Voltar" 
+            -- "➲ Estação Discoteca ", -- 1
+            -- "➲ skin ", --2
+            -- "➲ skin ", --3
+            -- "➲ skin ", --4
+            -- "➲ Voltar" 
         -- },
         -- nil,
       -- "ϟSelecione uma skin!ϟ"
@@ -942,17 +941,17 @@ end
    -- local skinsM =
        -- gg.choice(
         -- {
-            -- "[+] Notas 1000x ",
-            -- "[+] Ouro  300000x ",
-            -- "[+] Cartão Melhoria Celeiro 500x",
-            -- "[+] Cartão De Carga 500x",
-            -- "[+] Cartão De Expansão 500x",
-            -- "[+] Cartão Do Fornecedor 500x",
-            -- "[+] Cartão Melhoria de fabrica 500x (perigo)",
-            -- "[+] Cartão Melhoria de Ilha 500x (perigo)",
-            -- "[+] Cartão Melhoria de Tren 500x (perigo)",
-            -- "[+] Construção Rápida -100%",
-            -- "[+] Voutar"
+            -- "➲ Notas 1000x ",
+            -- "➲ Ouro  300000x ",
+            -- "➲ Cartão Melhoria Celeiro 500x",
+            -- "➲ Cartão De Carga 500x",
+            -- "➲ Cartão De Expansão 500x",
+            -- "➲ Cartão Do Fornecedor 500x",
+            -- "➲ Cartão Melhoria de fabrica 500x (perigo)",
+            -- "➲ Cartão Melhoria de Ilha 500x (perigo)",
+            -- "➲ Cartão Melhoria de Tren 500x (perigo)",
+            -- "➲ Construção Rápida -100%",
+            -- "➲ Voutar"
         -- },
         -- nil,
       -- "ϟSelecione um item!ϟ"
@@ -1002,9 +1001,9 @@ function reflashFlags(SearchTag)
     local reflashFlagsM =
         gg.choice(
         {
-            "[+] Reset Flags",
-            "[+] Selecionar ",
-            "[+] Resgatar"
+            "➲ Reset Flags",
+            "➲ Selecionar ",
+            "➲ Resgatar"
         },
         nil
     )
