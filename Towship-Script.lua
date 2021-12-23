@@ -1,9 +1,21 @@
+--#-----------------------------------------#
+
+   -- creditos:
+   -- ➲ YoTube : https://bit.ly/3qnULwt ➲ 
+   -- ➲ gitHub : https://bit.ly/3H9OHy2 ➲
+   -- ➲ WebSite: https://bit.ly/3qnUOZb ➲
+   -- endCredts
+
+--#-----------------------------------------#
+
 local scriptVersion = "1.2.1"
 local scriptAuthor = "Ygor Is"
 
 local atvScript = 1
 local ativacao = 1
 local database = require "TowshipDB"
+
+MemoriRegion = gg.REGION_C_ALLOC
 
 
 function tablelength(T)
@@ -894,7 +906,7 @@ function itensMenu()
     if MenuItens == tablelength(itensdb) then
        reflashFlags(SearchTag)
     else
-      valorFlag(itensdb[MenuSkins].value1,itensdb[MenuSkins].value2,itensdb[MenuSkins].value3,itensdb[MenuSkins].value4,itensdb[MenuSkins].value5,itensdb[MenuSkins].value6,itensdb[MenuSkins].value7,itensdb[MenuSkins].flagsOn)
+      valorFlag(itensdb[MenuItens].value1,itensdb[MenuItens].value2,itensdb[MenuItens].value3,itensdb[MenuItens].value4,itensdb[MenuItens].value5,itensdb[MenuItens].value6,itensdb[MenuItens].value7,itensdb[MenuItens].flagsOn)
       reflashFlags(SearchTag)
     end
   end
