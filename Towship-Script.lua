@@ -13,28 +13,56 @@ local scriptAuthor = "Ygor Is"
 
 local atvScript = 1
 local ativacao = 1
-local database = require "TowshipDB"
 
+local on  = "[ Online ]"
+local off = "[ Local ]"
+
+test = "[ Inativa ]"
+
+function statusdb()
+if test == on then
+       ResponseContent = gg.makeRequest("https://raw.githubusercontent.com/Ygor-Is/script-towship/main/TowshipDB.lua").content
+       pcall(load(ResponseContent))
+end
+if test == off then
+      database = require "TowshipDB"
+end
+end
 MemoriRegion = gg.REGION_C_ALLOC
 
-
+function testFunc(t)
+if t == true
+  then
+    gg.alert("Database Online ativa!")
+  else
+    gg.alert("Database local ativa!")
+  end
 function tablelength(T)
   local count = 0
   for _ in pairs(T) do count = count + 1 end
   return count
 end
 
-local skinsResult = {}
+ skinsResult = {}
 
 for numeror=1, tablelength(skinsdb), 1 do
     skinsResult[numeror] = skinsdb[numeror].name
 end
 
-local itensResult = {}
+ decoracaoResult = {}
+
+for numeror=1, tablelength(decoracaodb), 1 do
+    decoracaoResult[numeror] = decoracaodb[numeror].name
+end
+
+ itensResult = {}
 
 for numeror=1, tablelength(itensdb), 1 do
     itensResult[numeror] = itensdb[numeror].name
 end
+end
+
+
 
 function mainMenu()
     local mainM =
@@ -43,8 +71,10 @@ function mainMenu()
             "➲ Opções",
             "➲ Opções De Tempo",
             "➲ Tools",
-            "➲ Skins Rewards",
-            "➲ Itens Rewards",
+            "➲ Skins",
+            "➲ Itens",
+            "➲ Decorações",
+            test .." Database",
             "➲ Sair"
         },
         nil
@@ -68,6 +98,21 @@ function mainMenu()
         baseConfigRewards()
     end
     if mainM == 6 then
+        menuBase = 3
+        baseConfigRewards()
+    end
+    if mainM == 7 then
+    if test == off then
+        test = on
+        statusdb()
+        testFunc(true)
+    else
+       test = off
+       statusdb()
+       testFunc(false)
+    end
+    end
+    if mainM == 8 then
         exitScript()
     end
     if mainM == nil then
@@ -769,18 +814,18 @@ function defineFlags(opem,SearchT)
     end
    else
     if SearchT == 1 then
-        skinRewardSearch("1;4800;1935762184;104;0;0;0;0::37")
+        RewardSearch("1;4800;1935762184;104;0;0;0;0::37")
         SearchTag = 1
     end
     if SearchT == 2 then
-        skinRewardSearch("1;4800;1635148044;3355698;0;0;0;0::37")
+        RewardSearch("1;4800;1635148044;3355698;0;0;0;0::37")
         SearchTag = 2
     end
   end
 end
 
 
-function skinRewardSearch(Search)
+function RewardSearch(Search)
     gg.clearResults()
     gg.searchNumber(Search, gg.TYPE_DWORD)
     gg.refineNumber("4800")
@@ -790,6 +835,9 @@ function skinRewardSearch(Search)
     end
     if menuBase == 2 then
     itensMenu()
+    end
+    if menuBase == 3 then
+    decoracaoMenu()
     end
     -- if result[1].value != 4800 then gg.toast("Resultado Inválido!!")
 end
@@ -894,12 +942,30 @@ function skinsMenu()
   end
 end
 
+function decoracaoMenu()
+   local Menudecoracao =
+       gg.choice(
+        decoracaoResult,
+        nil,
+      "ϟSelecione uma decoração!ϟ"
+    )
+  if Menudecoracao == nil then
+   else
+    if Menudecoracao == tablelength(decoracaodb) then
+       reflashFlags(SearchTag)
+    else
+      valorFlag(decoracaodb[Menudecoracao].value1,decoracaodb[Menudecoracao].value2,decoracaodb[Menudecoracao].value3,decoracaodb[Menudecoracao].value4,decoracaodb[Menudecoracao].value5,decoracaodb[Menudecoracao].value6,decoracaodb[Menudecoracao].value7,decoracaodb[Menudecoracao].flagsOn)
+      reflashFlags(SearchTag)
+    end
+  end
+end
+
 function itensMenu()
    local MenuItens =
        gg.choice(
-        skinsResult,
+        itensResult,
         nil,
-      "ϟSelecione um Item!ϟ"
+      "ϟSelecione um item!ϟ"
     )
   if MenuItens == nil then
    else
@@ -1031,6 +1097,9 @@ function reflashFlags(SearchTag)
        end
        if menuBase == 2 then
         itensMenu()
+       end
+       if menuBase == 3 then
+        decoracaoMenu()
        end
         ativacao = 2
     end
